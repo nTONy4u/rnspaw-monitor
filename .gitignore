@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Logs
+*.log
+*.log.*
+
+# Temporary files
+*.tmp
+*.temp
+/tmp/
+
+# State files
+rn_monitor_state.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
