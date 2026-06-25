@@ -34,46 +34,54 @@ Monitor your [Reticulum](https://reticulum.network) network for new nodes, traff
 
 ### 1. On your machine
 
-Clone the repository:
-git clone https://github.com/ntony4u/rnspaw-monitor.git
-cd rnspaw-monitor
+**1.1** Clone the repository:
 
-text
+```git clone https://github.com/ntony4u/rnspaw-monitor.git ```
 
-Install dependencies:
-pip3 install requests
+```cd rnspaw-monitor ```  
+  
 
-text
 
-Find Reticulum command paths:
-which rnpath
-which rnstatus
+**1.2** Install dependencies:  
 
-text
+```pip3 install requests ```  
+  
 
-Usually: `/home/USERNAME/venv/reticulum/bin/rnpath`
 
-Edit configuration in `rnspaw_monitor.py`:
-PYTHONANYWHERE_URL = "https://YOUR_USERNAME.pythonanywhere.com/api/alert"
+**1.3** Find Reticulum command paths:  
 
-text
+```which rnpath ```  
+```which rnstatus ```  
 
-Also update `rnpath` and `rnstatus` paths to match your system.
 
-Test the script:
-python3 rnspaw_monitor.py
+Usually: `/home/USERNAME/venv/reticulum/bin/rnpath`  
+  
 
-text
 
-Add to crontab (every 15 minutes):
-crontab -e
+**1.4** Edit configuration in `rnspaw_monitor.py`:  
 
-text
+`PYTHONANYWHERE_URL = "https://YOUR_USERNAME.pythonanywhere.com/api/alert"`  
+  
 
-Add this line:
-*/15 * * * * /usr/bin/python3 /home/USERNAME/rnspaw-monitor/rnspaw_monitor.py >> /tmp/rn_monitor.log 2>&1
 
-text
+**1.5** Also update `rnpath` and `rnstatus` paths to match your system.  
+  
+
+
+**1.6** Test the script:  
+
+```python3 rnspaw_monitor.py ```  
+  
+
+
+**1.7** Add to crontab (every 15 minutes):  
+
+```crontab -e ```
+
+Add this line:  
+`*/15 * * * * /usr/bin/python3 /home/USERNAME/rnspaw-monitor/rnspaw_monitor.py >> /tmp/rn_monitor.log 2>&1`  
+
+
 
 ### 2. On PythonAnywhere
 
@@ -124,20 +132,20 @@ text
 **Error:** `No such file or directory: 'rnpath'`
 
 **Solution:** Use full paths in the script:
-['/home/USERNAME/venv/reticulum/bin/rnpath', '-t', '-r']
-['/home/USERNAME/venv/reticulum/bin/rnstatus']
+`/home/USERNAME/venv/reticulum/bin/rnpath', '-t', '-r'  `  
+`/home/USERNAME/venv/reticulum/bin/rnstatus`
 
-text
+
 
 ### Dashboard returns 401 Unauthorized
 
 **Error:** `Dashboard returned 401: Unauthorized`
 
-**Solution:** Configure authentication in `rnspaw_monitor.py`:
-AUTH_USERNAME = "your_username"
-AUTH_PASSWORD = "your_password"
+**Solution:** Configure authentication in `rnspaw_monitor.py`:  
+`AUTH_USERNAME = "your_username"`  
+`AUTH_PASSWORD = "your_password"`
 
-text
+
 
 Or disable password protection on PythonAnywhere.
 
